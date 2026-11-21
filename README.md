@@ -3,6 +3,7 @@
 Turns a Tenable `.nessus` export into a prioritised remediation plan a customer can act on — with the ordering decided by rules, not by a model.
 
 <!-- claims: findings=9 hosts=3 kev=3 wave1=3 -->
+**Operating procedure:** [docs/SOP.md](docs/SOP.md) — how to run it, who approves, and what to do when it fails.
 
 ## The problem this solves
 
