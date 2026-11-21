@@ -1,0 +1,9 @@
+{
+  "source": "CISA Known Exploited Vulnerabilities",
+  "source_date": "2026-11-19",
+  "cves": [
+    "CVE-2021-44228",
+    "CVE-2018-13379",
+    "CVE-2019-0708"
+  ]
+}

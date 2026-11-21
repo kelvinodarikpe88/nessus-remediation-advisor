@@ -1,0 +1,100 @@
+<?xml version="1.0" ?>
+<NessusClientData_v2>
+  <Report name="quarterly-external">
+    <ReportHost name="web-01">
+      <HostProperties>
+        <tag name="host-ip">10.0.1.10</tag>
+        <tag name="host-fqdn">web-01.example.internal</tag>
+      </HostProperties>
+      <ReportItem port="443" svc_name="www" protocol="tcp" severity="3" pluginID="156001" pluginName="Apache Log4j RCE (Log4Shell)" pluginFamily="Web Servers">
+        <description>The remote host contains a logging library vulnerable to remote code execution.</description>
+        <solution>Upgrade Log4j to 2.17.1 or later.</solution>
+        <cve>CVE-2021-44228</cve>
+        <cvss3_base_score>10.0</cvss3_base_score>
+        <exploit_available>true</exploit_available>
+        <synopsis>The remote service is affected by a critical remote code execution flaw.</synopsis>
+        <plugin_output>Version 2.14.1 detected in /opt/app/lib/log4j-core.jar</plugin_output>
+      </ReportItem>
+      <ReportItem port="22" svc_name="ssh" protocol="tcp" severity="3" pluginID="153953" pluginName="OpenSSH Pre-Auth Double Free" pluginFamily="Misc.">
+        <description>The SSH daemon is affected by a memory corruption issue.</description>
+        <solution>Upgrade OpenSSH to 9.2p1 or later.</solution>
+        <cve>CVE-2023-25136</cve>
+        <cvss3_base_score>9.8</cvss3_base_score>
+        <exploit_available>false</exploit_available>
+        <synopsis>The remote SSH server is affected by a pre-authentication flaw.</synopsis>
+      </ReportItem>
+      <ReportItem port="8443" svc_name="https-alt" protocol="tcp" severity="2" pluginID="188001" pluginName="TLS Certificate Weak Signature" pluginFamily="General">
+        <description>The certificate chain uses a SHA-1 signature.</description>
+        <solution>Reissue the certificate with SHA-256.</solution>
+        <cvss3_base_score>5.3</cvss3_base_score>
+        <exploit_available>false</exploit_available>
+        <synopsis>The remote certificate uses a deprecated signature algorithm.</synopsis>
+      </ReportItem>
+    </ReportHost>
+    <ReportHost name="db-01">
+      <HostProperties>
+        <tag name="host-ip">10.0.2.20</tag>
+        <tag name="host-fqdn">db-01.example.internal</tag>
+      </HostProperties>
+      <ReportItem port="5432" svc_name="postgresql" protocol="tcp" severity="3" pluginID="156002" pluginName="PostgreSQL Privilege Escalation" pluginFamily="Databases">
+        <description>An authenticated user can escalate to superuser.</description>
+        <solution>Apply the vendor patch for 14.7.</solution>
+        <cve>CVE-2023-2455</cve>
+        <cvss3_base_score>8.8</cvss3_base_score>
+        <exploit_available>false</exploit_available>
+        <synopsis>The database server is affected by a privilege escalation flaw.</synopsis>
+      </ReportItem>
+      <ReportItem port="443" svc_name="www" protocol="tcp" severity="3" pluginID="156001" pluginName="Apache Log4j RCE (Log4Shell)" pluginFamily="Web Servers">
+        <description>The remote host contains a logging library vulnerable to remote code execution.</description>
+        <solution>Upgrade Log4j to 2.17.1 or later.</solution>
+        <cve>CVE-2021-44228</cve>
+        <cvss3_base_score>10.0</cvss3_base_score>
+        <exploit_available>true</exploit_available>
+        <synopsis>The remote service is affected by a critical remote code execution flaw.</synopsis>
+      </ReportItem>
+      <ReportItem port="161" svc_name="snmp" protocol="udp" severity="2" pluginID="188002" pluginName="SNMP Default Community String" pluginFamily="SNMP">
+        <description>The device answers to the default community string.</description>
+        <solution>Change the community string and restrict access.</solution>
+        <cvss3_base_score>6.5</cvss3_base_score>
+        <exploit_available>false</exploit_available>
+        <synopsis>The remote SNMP service uses a default credential.</synopsis>
+      </ReportItem>
+    </ReportHost>
+    <ReportHost name="vpn-01">
+      <HostProperties>
+        <tag name="host-ip">10.0.3.30</tag>
+        <tag name="host-fqdn">vpn-01.example.internal</tag>
+      </HostProperties>
+      <ReportItem port="443" svc_name="www" protocol="tcp" severity="3" pluginID="156003" pluginName="SSL VPN Path Traversal" pluginFamily="Firewalls">
+        <description>The VPN appliance is vulnerable to an unauthenticated path traversal.</description>
+        <solution>Upgrade to the fixed firmware build.</solution>
+        <cve>CVE-2018-13379</cve>
+        <cvss3_base_score>9.8</cvss3_base_score>
+        <exploit_available>true</exploit_available>
+        <synopsis>The remote VPN appliance exposes a path traversal flaw.</synopsis>
+      </ReportItem>
+      <ReportItem port="443" svc_name="www" protocol="tcp" severity="1" pluginID="188003" pluginName="HTTP Server Header Disclosure" pluginFamily="Web Servers">
+        <description>The server banner discloses a version.</description>
+        <solution>Suppress the banner.</solution>
+        <cvss3_base_score>2.6</cvss3_base_score>
+        <exploit_available>false</exploit_available>
+        <synopsis>The remote service discloses its version.</synopsis>
+      </ReportItem>
+      <ReportItem port="3389" svc_name="rdp" protocol="tcp" severity="3" pluginID="156004" pluginName="RDP BlueKeep" pluginFamily="Windows">
+        <description>A pre-authentication remote code execution flaw in RDP.</description>
+        <solution>Apply the vendor patch and disable RDP exposure.</solution>
+        <cve>CVE-2019-0708</cve>
+        <cvss3_base_score>9.8</cvss3_base_score>
+        <exploit_available>true</exploit_available>
+        <synopsis>The remote desktop service is affected by a critical flaw.</synopsis>
+      </ReportItem>
+      <ReportItem port="8080" svc_name="http-proxy" protocol="tcp" severity="2" pluginID="188004" pluginName="Jenkins Script Console Exposed" pluginFamily="Web Servers">
+        <description>The Jenkins script console is reachable without authentication.</description>
+        <solution>Restrict access to the script console.</solution>
+        <cvss3_base_score>7.5</cvss3_base_score>
+        <exploit_available>false</exploit_available>
+        <synopsis>The remote console allows arbitrary command execution.</synopsis>
+      </ReportItem>
+    </ReportHost>
+  </Report>
+</NessusClientData_v2>
